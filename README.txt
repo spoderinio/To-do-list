@@ -1,1 +1,1 @@
-Creates a database storing your TO-DOs
+A simple To-do list, created with python and sql alchemy.
