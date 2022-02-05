@@ -1,0 +1,60 @@
+body {
+    font-family: "Raleway";
+    font-size: 1.5em;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+    padding: 20px;
+}
+
+label {
+    margin: 25px 5px;
+}
+
+#remove_task {
+    background-color: #E5E5E5;
+    color: #302B29;
+    padding: 30px;
+}
+
+#submit_btn {
+    background-color: #01A88A;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid white;
+    margin: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#remove_btn {
+    background-color: #01A88A;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid white;
+    margin: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    
+}
+
+#usr_input {
+    font-family: "Raleway";
+    font-size: 0.85em;
+    width: 200px;
+    margin: 50px 10px;
+    padding: 5px 0;
+    border: 2px solid darkgray;
+}
+
+#submit_btn:hover {
+    background-color: darkslategray;
+}
+
+#remove_btn:hover {
+    background-color: darkslategray;
+}

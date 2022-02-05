@@ -1,6 +1,6 @@
 
 from asyncio import all_tasks
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -35,9 +35,7 @@ def add():
 
 @app.route("/remove_task", methods=["POST"])
 def remove_task():
-    all_tasks = db.session.query(Task).all()
     checked_boxes = request.form.getlist("check")
-    # print(len(all_tasks))
     for item in range(len(checked_boxes)):
         idx = int(checked_boxes[item])
         print(idx)

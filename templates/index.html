@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+
 </head>
 
 <Body>
+    <div>
+        <img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_623425276_351576.jpg" alt="to_do_logo">
+    </div>
     <h1>To Do List</h1>
     {% if all_tasks |count ==0: %}
     <p>You have nothing planned to do</p>
@@ -17,17 +22,17 @@
     <div id="remove_task">
         <form action="/remove_task" method="POST">
             {% for item in all_tasks %}
-            <input type="checkbox" name="check" id="{{ item['id'] }}" , value="{{ item['id']}}">
+            <input type="checkbox" name="check" id="{{ item['id'] }}" value="{{ item['id']}}">
             <label for="{{ all_tasks}}" name="{{ item['to_do']}}">{{ item['to_do']}}</label><br>
             {% endfor %}
-            <input type="submit" name="" id="" value="REMOVE TASK">
+            <input type="submit" name="" id="remove_btn" value="REMOVE TASK">
 
         </form>
     </div>
     {% endif %}
     <form action="/add" method="POST">
         <label>New Task:</label>
-        <input type="text" , name="new_task">
+        <input type="text" , name="new_task" id="usr_input">
         <button id="submit_btn" type="submit">Add task</button>
     </form>
 
