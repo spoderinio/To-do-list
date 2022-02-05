@@ -37,22 +37,14 @@ def add():
 def remove_task():
     all_tasks = db.session.query(Task).all()
     checked_boxes = request.form.getlist("check")
-    print(checked_boxes)
-
+    # print(len(all_tasks))
     for item in range(len(checked_boxes)):
         idx = int(checked_boxes[item])
-        if len(checked_boxes) > 1:
-            item_to_delete = Task.query.filter_by(
-                to_do=all_tasks[idx - 1].to_do).first()
-            print(item_to_delete)
-            db.session.delete(item_to_delete)
-            db.session.commit()
-        else:
-            item_to_delete = Task.query.filter_by(
-                to_do=all_tasks[0].to_do).first()
-            print(item_to_delete)
-            db.session.delete(item_to_delete)
-            db.session.commit()
+        print(idx)
+        item_to_delete = Task.query.get(idx)
+        db.session.delete(item_to_delete)
+        db.session.commit()
+
     return redirect("/")
 
 
