@@ -17,7 +17,7 @@
     <div id="remove_task">
         <form action="/remove_task" method="POST">
             {% for item in all_tasks %}
-            <input type="checkbox" name="check" id="{{ item['to_do']}}" , value="{{ item['to_do']}}">
+            <input type="checkbox" name="check" id="{{ item.id }}" , value="{{ item['id']}}">
             <label for="{{ all_tasks}}" name="{{ item['to_do']}}">{{ item['to_do']}}</label><br>
             {% endfor %}
             <input type="submit" name="" id="" value="REMOVE TASK">

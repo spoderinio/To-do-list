@@ -35,16 +35,24 @@ def add():
 
 @app.route("/remove_task", methods=["POST"])
 def remove_task():
+    all_tasks = db.session.query(Task).all()
     checked_boxes = request.form.getlist("check")
+    print(checked_boxes)
 
-    for item in checked_boxes:
-        idx = checked_boxes.index(item)
-        print(idx)
-        # item_to_delete = Task.query.filter_by(
-        #     title=all_tasks[idx].to_do).first()
-        # print(item_to_delete)
-        # db.session.delete(item_to_delete)
-        # db.session.commit()
+    for item in range(len(checked_boxes)):
+        idx = int(checked_boxes[item])
+        if len(checked_boxes) > 1:
+            item_to_delete = Task.query.filter_by(
+                to_do=all_tasks[idx - 1].to_do).first()
+            print(item_to_delete)
+            db.session.delete(item_to_delete)
+            db.session.commit()
+        else:
+            item_to_delete = Task.query.filter_by(
+                to_do=all_tasks[idx].to_do).first()
+            print(item_to_delete)
+            db.session.delete(item_to_delete)
+            db.session.commit()
     return redirect("/")
 
 
