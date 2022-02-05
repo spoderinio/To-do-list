@@ -49,7 +49,7 @@ def remove_task():
             db.session.commit()
         else:
             item_to_delete = Task.query.filter_by(
-                to_do=all_tasks[idx].to_do).first()
+                to_do=all_tasks[0].to_do).first()
             print(item_to_delete)
             db.session.delete(item_to_delete)
             db.session.commit()
